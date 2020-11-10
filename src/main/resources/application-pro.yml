@@ -1,0 +1,25 @@
+spring:
+  application:
+    name: springboot-demo
+  data:
+    mongodb:
+      uri: mongodb://mongouser:LBvx43rBHpNCq9@10.251.64.110:27017/itservice?authSource=admin
+  datasource:
+    type: com.alibaba.druid.pool.DruidDataSource
+    driver-class-name: com.mysql.jdbc.Driver
+    url: jdbc:mysql://10.251.76.35:3306/itservice_api?serverTimezone=GMT%2B8&autoReconnect=true&allowMultiQueries=true&useUnicode=true&characterEncoding=utf8&zeroDateTimeBehavior=convertToNull&useSSL=false
+    username: admin
+    password: HHvfNb89oOi3u9gb@Wi8
+    initial-size: 10
+    max-active: 30
+    min-idle: 10
+    max-wait: 60000
+    pool-prepared-statements: true
+    max-pool-prepared-statement-per-connection-size: 20
+    time-between-eviction-runs-millis: 60000
+    min-evictable-idle-time-millis: 300000
+    test-while-idle: true
+    test-on-borrow: false
+    test-on-return: false
+server:
+  port: 8080

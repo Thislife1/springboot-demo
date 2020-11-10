@@ -1,0 +1,67 @@
+spring:
+  data:
+    mongodb:
+      uri: mongodb://mongouser:LBvx43rBHpNCq9@10.251.64.110:27017/itservice?authSource=admin
+  datasource:
+    type: com.alibaba.druid.pool.DruidDataSource
+    druid:
+      # 需要指定时区 serverTimezone=Asia/Shanghai 或 serverTimezone=GMT%2B8 或其他
+      driver-class-name: com.mysql.cj.jdbc.Driver
+      url: jdbc:mysql://10.251.76.35:3306/itservice_api?serverTimezone=GMT%2B8&autoReconnect=true&allowMultiQueries=true&useUnicode=true&characterEncoding=utf8&zeroDateTimeBehavior=convertToNull&useSSL=false
+      username: admin
+      password: HHvfNb89oOi3u9gb@Wi8
+      initial-size: 10
+      max-active: 30
+      min-idle: 10
+      max-wait: 60000
+      pool-prepared-statements: true
+      max-pool-prepared-statement-per-connection-size: 20
+      time-between-eviction-runs-millis: 60000
+      min-evictable-idle-time-millis: 300000
+      test-while-idle: true
+      test-on-borrow: false
+      test-on-return: false
+      stat-view-servlet:
+        enabled: false
+        url-pattern: /druid/*
+        #login-username: admin
+        #login-password: admin
+      filter:
+        stat:
+          log-slow-sql: true
+          slow-sql-millis: 1000
+          merge-sql: false
+        wall:
+          config:
+            multi-statement-allow: true
+  redis:
+    cluster:
+      nodes:
+        - 10.251.76.39:7001
+        - 10.251.76.39:7004
+        - 10.251.76.21:7002
+        - 10.251.76.21:7005
+        - 10.251.76.22:7003
+        - 10.251.76.22:7006
+      max-redirects: 3
+    jedis:
+      pool:
+        max-active: 500
+        max-idle: 10
+    password: mypassword
+
+swagger:
+  host: itservice.front-manage.devgw.yonghui.cn
+
+logback:
+  kafka:
+    # 日志服务测试地址
+    #servers: kfk-test-elk01.yonghui.cn:9092,kfk-test-elk02.yonghui.cn:9092,kfk-test-elk03.yonghui.cn:9092
+    # 日志服务开发地址
+    servers:  kfk-dev-elk01.yonghui.cn:9092,kfk-dev-elk02.yonghui.cn:9092,kfk-dev-elk03.yonghui.cn:9092
+    # 请设置当前项目的topic名称格式：operation-项目编码
+    topic: operation-itservice-010-it-service-front-manage
+
+tenant:
+  service:
+    url: http://it-service-tenant-usercenter.itservice.svc:8080
