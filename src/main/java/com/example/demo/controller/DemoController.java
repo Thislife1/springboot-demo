@@ -21,4 +21,5 @@ public class DemoController {
     public void demo(SwaggerVO swagger){
         System.out.println(swagger);
     }
+
 }
