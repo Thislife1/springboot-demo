@@ -11,6 +11,7 @@ import lombok.Data;
 @Data
 @ApiModel
 public class SwaggerVO {
+
     @ApiModelProperty(value="用户名", required=true)
     private String name;
 
